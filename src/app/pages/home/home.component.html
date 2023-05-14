@@ -1,0 +1,43 @@
+<div class="container">
+    <h3>Cantidad de mascotas: {{ cantidadMascotas }}</h3>
+  
+    <div class="row">
+      <div class="col-md-6">
+        <!--<div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Buscar mascota" (input)="filtrarMascotas($event.target.value)">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button">Buscar</button>
+          </div>
+        </div>-->
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-success float-right" (click)="mostrarFormulario = true">Agregar Mascota</button>
+      </div>
+    </div>
+
+    <div *ngIf="mostrarFormulario">
+      <form (ngSubmit)="agregarMascota()" [formGroup]="petForm">
+        <input type="text" matInput placeholder="Name" formControlName="name" />
+        <!-- select de especies y race-->
+        <!-- select de genero -->
+        <input type="date" matInput placeholder="Birthday" formControlName="birthdah" />
+        <!-- file photo-->
+        <input type="code" matInput placeholder="Code" formControlName="code" />
+      </form>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-4" *ngFor="let mascota of mascotas">
+        <div class="card mb-3">
+          <img [src]="apiUrl+mascota.photo" class="card-img-top" alt="Foto Mascota">
+          <div class="card-body">
+            <h5 class="card-title">{{ mascota.name }}</h5>
+            <p class="card-text">Edad: {{ mascota.age }} / {{mascota.months}}</p>
+            <p class="card-text">Código Chip: {{ mascota.code }}</p>
+            <p class="card-text">Raza: {{ mascota.race_name }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,58 @@
+<!--<div class="container-fluid">
+    <div class="row justify-content-center align-items-center login-container">
+      <div class="col-lg-4 col-sm-12 left-section">
+        <div class="form-container">
+          <div class="logo-container">
+            <img src="assets/img/logo.svg" alt="Logo" class="logo">
+          </div>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <mat-form-field class="">
+                    <mat-label>E-mail</mat-label>
+                    <input matInput type="email" class="form-control" formControlName="email" id="email" placeholder="Correo electrónico" required>
+                </mat-form-field>
+            
+                <mat-form-field class="">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput type="password" class="form-control" formControlName="password" id="password" placeholder="Contraseña" required>
+                </mat-form-field>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-8 col-sm-12 right-section d-none d-lg-block">
+        <div class="bg-image">
+        </div>
+        <div class="advice-container">
+          <h3>Consejo del día</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo dapibus lacus, vel feugiat velit varius eget. Vestibulum molestie justo vel metus pretium eleifend.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+-->
+<mat-card class="loginCard">
+  <mat-card-content>
+    <div class="header">
+      <img src="assets/img/logo.svg" alt="Logo" class="logo">
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <p>
+        <mat-form-field>
+          <input type="email" matInput placeholder="Email" formControlName="email">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <input type="password" matInput placeholder="Password" formControlName="password">
+        </mat-form-field>
+      </p>
+
+      <div class="button">
+        <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid">Login</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
