@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit{
     this.renderer.setStyle(this.elementRef.nativeElement.ownerDocument.body, 'background-size', 'cover');
     this.renderer.setStyle(this.elementRef.nativeElement.ownerDocument.body, 'background-position', 'center');
     this.renderer.setStyle(this.elementRef.nativeElement.ownerDocument.body, 'background-repeat', 'no-repeat');
+    window.screen.orientation.lock('portrait');
   }
 
   async onSubmit() {

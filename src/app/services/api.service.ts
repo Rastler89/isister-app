@@ -34,4 +34,12 @@ export class ApiService {
     return this.get('my-pets');
   }
 
+  async getRaceForSpecie(id: any): Promise<any> {
+    return this.get(`species/${id}/races`);
+  }
+
+  async addPet(): Promise<any> {
+    
+  }
+
 }

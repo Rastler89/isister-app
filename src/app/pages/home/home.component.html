@@ -18,11 +18,23 @@
     <div *ngIf="mostrarFormulario">
       <form (ngSubmit)="agregarMascota()" [formGroup]="petForm">
         <input type="text" matInput placeholder="Name" formControlName="name" />
-        <!-- select de especies y race-->
-        <!-- select de genero -->
-        <input type="date" matInput placeholder="Birthday" formControlName="birthdah" />
-        <!-- file photo-->
+        <select matInput formControlName="specie" (change)="cargarRaza()" >
+          <option value="" [selected]="true">Seleccione una</option>
+          <option value="{{specie.id}}" *ngFor="let specie of species">{{specie.name_es}}</option>
+        </select>
+        <select matInput formControlName="race" [disabled]="statusRace">
+          <option value="" [selected]="true">Seleccione una</option>
+          <option value="{{race.id}}" *ngFor="let race of races">{{race.name_es}}</option>
+        </select>
+        <select matInput formControlName="gender">
+          <option value="" [selected]="true">Seleccione una</option>
+          <option value="0">Macho</option>
+          <option value="1">Hembra</option>
+        </select>
+        <input type="date" matInput placeholder="Birthday" formControlName="birthday" [max]="fechaActual"/>
+        <input type="file" (change)="cargarImagen()" placeholder="Photo" formControlName="photo">
         <input type="code" matInput placeholder="Code" formControlName="code" />
+        <button>Enviar</button>
       </form>
     </div>
   

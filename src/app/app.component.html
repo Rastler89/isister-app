@@ -1,6 +1,9 @@
-<ion-app>
+<ion-app *ngIf="authService.isAuthenticated()" style="background-color: white; height: 100vh;">
   <ng-container *ngIf="authService.isAuthenticated()">
     <app-private-menu></app-private-menu>
   </ng-container>
+  <ion-router-outlet></ion-router-outlet>
+</ion-app>
+<ion-app *ngIf="!authService.isAuthenticated()" >
   <ion-router-outlet></ion-router-outlet>
 </ion-app>
